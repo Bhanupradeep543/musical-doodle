@@ -25,7 +25,6 @@ import xgboost as xgb
 from xgboost import XGBClassifier
 from sklearn.decomposition import PCA
 from mlxtend.classifier import StackingClassifier
-train_data=pd.read_csv("tdata_proj_82.csv") # loading the train data file in pandas
 train_data.shape # included train data labels along with train data values
 
 
