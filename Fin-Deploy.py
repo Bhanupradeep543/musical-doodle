@@ -25,7 +25,6 @@ import xgboost as xgb
 from xgboost import XGBClassifier
 from sklearn.decomposition import PCA
 from mlxtend.classifier import StackingClassifier
-train_data.shape # included train data labels along with train data values
 
 
 # In[25]:
