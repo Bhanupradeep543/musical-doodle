@@ -32,14 +32,12 @@ train_data.shape # included train data labels along with train data values
 
 
 train_data=train_data.drop(columns=['recorded_by','id','quantity_group','num_private','payment_type','extraction_type_group','quality_group','source_type','waterpoint_type_group','date_recorded','region','region_code','extraction_type','scheme_management','installer','amount_tsh','management_group']) 
-train_data.shape
 
 
 # In[26]:
 
 
 train_data=train_data.drop(columns=['wpt_name','ward','subvillage','lga'])
-train_data.shape
 
 
 # In[27]:
@@ -47,7 +45,6 @@ train_data.shape
 
 label_encoder = preprocessing.LabelEncoder()
 train_data['status_group']= label_encoder.fit_transform(train_data['status_group']) 
-print(train_data['status_group'].value_counts())
 
 
 # In[28]:
@@ -195,13 +192,6 @@ train_data['construction_year'].describe()
 
 
 data=train_data
-
-
-# In[51]:
-
-
-data.shape
-
 
 # In[45]:
 
