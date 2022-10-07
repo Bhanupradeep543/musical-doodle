@@ -123,7 +123,7 @@ prediction=pd.DataFrame(prediction)
 
 
 st.subheader('Prediction')
-st.write(predicition)
+st.write(prediction)
 
 
 
