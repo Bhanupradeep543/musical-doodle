@@ -19,11 +19,8 @@ import streamlit as st
 
 
 # In[ ]:
-
-
 st.write("""Predicting Faulty Pump in Tanzania waterpoints dataset""")
-
-st.subheader("Dataset")
+st.subheader("Waterpoint Input parameters")
 data_file = st.file_uploader("Upload CSV",type=['csv'])
 if st.button("Process"):
     if data_file is not None:
@@ -31,16 +28,10 @@ if st.button("Process"):
         st.write(file_details)
         df = pd.read_csv(data_file)
         st.dataframe(df)
-
-st.subheader('Waterpoint Input parameters')
-st.write(df)
 raw_data=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221007%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221007T103648Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=93ed9259152e9331b2bd4f0d34506025f5231e25bd6c932fa12b4fc6707d816d") 
 target=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221007%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221007T103648Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3eff4f9628acf58a18081993416286cbcef9c2706b207adf441fff26172b5734")
 
-
 # In[ ]:
-
-
 def datacleaning(train_data):
     train_data=pd.concat((train_data,target),axis=1)
     label_encoder = preprocessing.LabelEncoder()
@@ -111,7 +102,7 @@ def datacleaning(train_data):
 
 
 data=datacleaning(raw_data)
-df=datacleaning(df)
+test=datacleaning(df)
 x=data.drop(columns=['status_group'])
 y=data['status_group']
 
@@ -126,7 +117,7 @@ XGB = XGBClassifier(objective = 'multi:softmax', booster = 'gbtree',num_class = 
 #fitting the train data input variables and target variables
 XGB.fit(x, y)
 # predicting the target varible from input variable of train data
-df=df.drop(columns=['status_group'])
+test=test.drop(columns=['status_group'])
 prediction = XGB.predict(df)
 prediction=pd.DataFrame(prediction)
 
