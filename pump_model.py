@@ -111,7 +111,7 @@ def datacleaning(train_data):
 
 
 data=datacleaning(raw_data)
-df=datacleaning(test_data)
+df=datacleaning(df)
 x=data.drop(columns=['status_group'])
 y=data['status_group']
 
