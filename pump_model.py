@@ -43,7 +43,6 @@ if st.button("Process"):
         st.dataframe(df)
 
 st.subheader('Waterpoint Input parameters')
-st.write(df)
 raw_data=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221007%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221007T103648Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=93ed9259152e9331b2bd4f0d34506025f5231e25bd6c932fa12b4fc6707d816d") 
 target=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221007%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221007T103648Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3eff4f9628acf58a18081993416286cbcef9c2706b207adf441fff26172b5734")
 
