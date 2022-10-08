@@ -23,7 +23,10 @@ import base64
 
 st.write("""# Predicting Faulty Pump in Tanzania waterpoints dataset""")
 st.subheader("Dataset")
-st.write("""input dataset should have below features and datatype""")
+st.write("""input dataset 
+should have below features 
+and datatype
+            """)
 def show_pdf(file_path):
     with open(file_path,"rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
