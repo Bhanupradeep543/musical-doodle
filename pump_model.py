@@ -19,7 +19,7 @@ import streamlit as st
 import io
 
 st.markdown(f"""<style>.stApp {{
-             background: url("https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/national/machine-learning-algorithm.png");
+             background: url("https://miro.medium.com/max/1252/0*dGvfEzRRCnjSSfHI.jpg");
              background-size: cover
          }}
          </style>""",unsafe_allow_html=True)
