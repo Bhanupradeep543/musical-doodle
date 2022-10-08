@@ -21,7 +21,7 @@ import streamlit as st
 # In[8]:
 
 
-st.write("""# Predicting Faulty Pump in Tanzania waterpoints dataset""")
+st.write("""# Predicting Faulty Pump in Tanzania waterpoints """)
 st.subheader("Dataset")
 st.write("""input dataset should have below features and datatype""")
 raw_data=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221008T121927Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3226347507c854e69117ec166a7ae8fe53e3a5555b6e763285814986152cb488") 
