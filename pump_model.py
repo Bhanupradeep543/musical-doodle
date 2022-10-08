@@ -137,7 +137,6 @@ prediction=prediction.replace(to_replace=1,value="non functional")
 prediction=prediction.replace(to_replace=2,value="functional needs repair")
 st.subheader('Prediction')
 st.write(prediction)
-st.cache
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 #converting the sample dataframe
