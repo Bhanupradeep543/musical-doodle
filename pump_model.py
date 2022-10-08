@@ -38,8 +38,8 @@ s = buffer.getvalue()
 st.text(s)
 
 data_file = st.file_uploader("Upload CSV",type=['csv'])
+st.write("After uploading the file Name Error will be rectified.")
 if st.button("Process"):
-    st.write("After uploading the file Name Error will be rectified.")
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         df = pd.read_csv(data_file)
