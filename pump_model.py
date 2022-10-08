@@ -23,7 +23,7 @@ import io
 
 st.write("""# Predicting Faulty Pump in Tanzania waterpoints """)
 st.subheader("Dataset")
-st.write("""input dataset should have below features and datatype""")
+st.write("""Input dataset should have below features and datatype""")
 raw_data=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221008T121927Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3226347507c854e69117ec166a7ae8fe53e3a5555b6e763285814986152cb488") 
 target=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221008T121927Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e3fdf0f8e2e399220f4b165e7cc7317c5b236257fe915f785837af7e8708bd94")
 buffer = io.StringIO()
@@ -33,16 +33,12 @@ st.text(s)
 
 data_file = st.file_uploader("Upload CSV",type=['csv'])
 if st.button("Process"):
+st.write("After uploading the file Name Error will be rectified.")
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
-        st.write(file_details)
         df = pd.read_csv(data_file)
         st.subheader('Waterpoint dataset parameters')
         st.dataframe(df)
-
-
-# In[ ]:
-
 
 def datacleaning(train_data):
     train_data=pd.concat((train_data,target),axis=1)
@@ -109,18 +105,10 @@ def datacleaning(train_data):
     cleandata=train_data
     return cleandata
 
-
-# In[ ]:
-
-
 data=datacleaning(raw_data)
 test=datacleaning(df)
 x=data.drop(columns=['status_group'])
 y=data['status_group']
-
-
-# In[ ]:
-
 
 #choosing the hyperparameters based on dataset
 XGB = XGBClassifier(objective = 'multi:softmax', booster = 'gbtree',num_class = 3,
