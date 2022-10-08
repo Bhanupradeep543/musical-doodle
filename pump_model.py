@@ -16,7 +16,7 @@ from sklearn import decomposition
 import xgboost as xgb
 from xgboost import XGBClassifier
 import streamlit as st
-
+import base64
 
 # In[8]:
 
