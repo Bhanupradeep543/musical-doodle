@@ -172,7 +172,7 @@ XGB = XGBClassifier(objective = 'multi:softmax', booster = 'gbtree',num_class = 
 #fitting the train data input variables and target variables
 XGB.fit(x, y)
 # predicting the target varible from input variable of train data
-df=df.drop(columns=['status_group'])
+test=test.drop(columns=['status_group'])
 prediction = XGB.predict(test)
 prediction=pd.DataFrame(prediction)
 prediction=prediction.replace(to_replace=0,value="functional")
