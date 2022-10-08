@@ -17,10 +17,16 @@ import xgboost as xgb
 from xgboost import XGBClassifier
 import streamlit as st
 import io
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-size: cover;
+}
+</style>
+'''
 
-# In[8]:
-
-
+st.markdown(page_bg_img, unsafe_allow_html=True)
 st.write("""# Predicting Faulty Pump in Tanzania waterpoints """)
 st.subheader("Dataset")
 st.write("""Input dataset should have below features and datatype""")
@@ -33,7 +39,7 @@ st.text(s)
 
 data_file = st.file_uploader("Upload CSV",type=['csv'])
 if st.button("Process"):
-st.write("After uploading the file Name Error will be rectified.")
+    st.write("After uploading the file Name Error will be rectified.")
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         df = pd.read_csv(data_file)
