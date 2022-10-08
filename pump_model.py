@@ -19,7 +19,7 @@ import streamlit as st
 import io
 
 st.markdown(f"""<style>.stApp {{
-             background: url("https://miro.medium.com/max/1252/0*dGvfEzRRCnjSSfHI.jpg");
+             background: url("https://image.shutterstock.com/image-vector/artificial-intelligence-concept-technology-background-260nw-1111962779.jpg");
              background-size: cover
          }}
          </style>""",unsafe_allow_html=True)
