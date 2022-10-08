@@ -179,7 +179,6 @@ prediction=prediction.replace(to_replace=0,value="functional")
 prediction=prediction.replace(to_replace=1,value="non functional")
 prediction=prediction.replace(to_replace=2,value="functional needs repair")
 st.subheader('Prediction')
-prediction=
 st.write(prediction)
 
 
