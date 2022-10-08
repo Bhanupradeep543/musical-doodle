@@ -19,7 +19,7 @@ import streamlit as st
 import io
 
 st.markdown(f"""<style>.stApp {{
-             background: url("https://cdn.pixabay.com/photo/2020/06/19/22/33/wormhole-5319067_960_720.jpg");
+             background: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Ftowardsdatascience.com%2Fwater-pumps-maintenance-prediction-data-science-illustrated-20c7100017c5&psig=AOvVaw1z755GNWkBeKfz1CqxwGWy&ust=1665326297789000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLjpqfnv0PoCFQAAAAAdAAAAABAM");
              background-size: cover
          }}
          </style>""",unsafe_allow_html=True)
