@@ -16,7 +16,7 @@ from sklearn import decomposition
 import xgboost as xgb
 from xgboost import XGBClassifier
 import streamlit as st
-
+import io
 
 # In[8]:
 
@@ -26,7 +26,11 @@ st.subheader("Dataset")
 st.write("""input dataset should have below features and datatype""")
 raw_data=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221008T121927Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3226347507c854e69117ec166a7ae8fe53e3a5555b6e763285814986152cb488") 
 target=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221008T121927Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e3fdf0f8e2e399220f4b165e7cc7317c5b236257fe915f785837af7e8708bd94")
-st.write(raw_data.info())
+buffer = io.StringIO()
+raw_data.info(buf=buffer)
+s = buffer.getvalue()
+st.text(s)
+
 data_file = st.file_uploader("Upload CSV",type=['csv'])
 if st.button("Process"):
     if data_file is not None:
