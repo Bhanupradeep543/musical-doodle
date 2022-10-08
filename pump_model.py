@@ -17,16 +17,12 @@ import xgboost as xgb
 from xgboost import XGBClassifier
 import streamlit as st
 import io
-page_bg_img = '''
-<style>
-body {
-background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
-background-size: cover;
-}
-</style>
-'''
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown(f"""<style>.stApp {{
+             background: url("https://cdn.pixabay.com/photo/2020/06/19/22/33/wormhole-5319067_960_720.jpg");
+             background-size: cover
+         }}
+         </style>""",unsafe_allow_html=True)
 st.write("""# Predicting Faulty Pump in Tanzania waterpoints """)
 st.subheader("Dataset")
 st.write("""Input dataset should have below features and datatype""")
