@@ -19,7 +19,7 @@ import streamlit as st
 import io
 
 st.markdown(f"""<style>.stApp {{
-             background: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Ftowardsdatascience.com%2Fwater-pumps-maintenance-prediction-data-science-illustrated-20c7100017c5&psig=AOvVaw1z755GNWkBeKfz1CqxwGWy&ust=1665326297789000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLjpqfnv0PoCFQAAAAAdAAAAABAM");
+             background: url("https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/national/machine-learning-algorithm.png");
              background-size: cover
          }}
          </style>""",unsafe_allow_html=True)
