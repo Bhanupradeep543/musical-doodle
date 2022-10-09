@@ -133,23 +133,3 @@ csv = convert_df(prediction) # calling the function to convert the output file i
 #adding a download button to download csv file
 st.download_button(label="Download data as CSV",data=csv,file_name='predicted ouput.csv',mime='text/csv')
 
-    
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
