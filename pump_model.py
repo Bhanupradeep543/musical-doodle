@@ -114,7 +114,7 @@ test=datacleaning(df)
 # predicting the target varible from input variable of train data
 test=test.drop(columns=['status_group'])
 
-XGB = pickle.load(open(xgbmodel.pkl','rb'))
+XGB = pickle.load(open(xgbmodel.pkl,'rb'))
 
 prediction = XGB.predict(test)
 # the prediction ouput is a numpy array..converting it into pandas dataframe
