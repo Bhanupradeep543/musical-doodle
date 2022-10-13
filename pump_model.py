@@ -27,7 +27,7 @@ st.markdown(f"""<style>.stApp {{
          </style>""",unsafe_allow_html=True)
 st.write("""# Predicting Faulty Pump in Tanzania waterpoints """) # Tittle addition
 st.subheader("Dataset")
-st.write("""#Input dataset should have below features and datatype""")
+st.write("""Input dataset should have below features and datatype""")
 # accessing the train datasets from web URLs
 raw_data=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221013T103111Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=55ef17854c3d43787ebf0918408427731b786d2be8314d8c3228e4584329f52c") 
 target=pd.read_csv("https://drivendata-prod.s3.amazonaws.com/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARVBOBDCYQTZTLQOS%2F20221013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221013T103111Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=978a46910db82acddcb6d90e0d0289cafd62a40c87c8e3216ffcad8eadabc432")
@@ -124,9 +124,9 @@ prediction=pd.DataFrame(prediction)
 prediction=prediction.replace(to_replace=0,value="functional")
 prediction=prediction.replace(to_replace=1,value="non functional")
 prediction=prediction.replace(to_replace=2,value="functional needs repair")
-st.subheader('#Prediction')
+st.subheader('Prediction')
 st.write(prediction)
-st.write("#Downloaded file data points")
+st.write("Downloaded file data points")
 st.write(prediction.shape[0])
 
 
