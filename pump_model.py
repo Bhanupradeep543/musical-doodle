@@ -46,7 +46,7 @@ if st.button("Process"):
         st.subheader('Waterpoint dataset features')
         st.dataframe(df)
 # created a function datacleaning for working both on train and test data
-def datacleaning():
+def datacleaning(train_data):
     train_data=pd.concat((train_data,target),axis=1)
     label_encoder = preprocessing.LabelEncoder() # for traget encoding first we have to convert the target label to numerical
     train_data['status_group']= label_encoder.fit_transform(train_data['status_group']) 
