@@ -46,71 +46,70 @@ if st.button("Process"):
         st.subheader('Waterpoint dataset features')
         st.dataframe(df)
 # created a function datacleaning for working both on train and test data
-def datacleaning(train_data):
-    train_data=pd.concat((train_data,target),axis=1)
-    label_encoder = preprocessing.LabelEncoder() # for traget encoding first we have to convert the target label to numerical
-    train_data['status_group']= label_encoder.fit_transform(train_data['status_group']) 
-    # removing the features using EDA analysis
-    train_data=train_data.drop(columns=['recorded_by','id','quantity_group','num_private','payment_type','extraction_type_group','quality_group','source_type','waterpoint_type_group','date_recorded','region','region_code','extraction_type','scheme_management','installer','amount_tsh','management_group',
+
+df=pd.concat((df,target),axis=1)
+label_encoder = preprocessing.LabelEncoder() # for traget encoding first we have to convert the target label to numerical
+df['status_group']= label_encoder.fit_transform(df['status_group']) 
+# removing the features using EDA analysis
+df=df.drop(columns=['recorded_by','id','quantity_group','num_private','payment_type','extraction_type_group','quality_group','source_type','waterpoint_type_group','date_recorded','region','region_code','extraction_type','scheme_management','installer','amount_tsh','management_group',
                                    'wpt_name','ward','subvillage','lga']) 
-    mu, sigma = 0, 0.05 # mean and % of noise for adding noise to avoid overfitting
-    encoder= ce.TargetEncoder(cols=['permit'],min_samples_leaf=40, smoothing=10) # Target encoding parameters
-    train_data['permit']= encoder.fit_transform(train_data['permit'],train_data['status_group']) # fitting model with the categorical column and target variable
-    noise = np.random.normal(mu, sigma, train_data.shape[0]) # generating the noise values equal to rows.
-    train_data['permit']=noise+train_data['permit']
-    encoder= ce.TargetEncoder(cols=['public_meeting'],min_samples_leaf=40, smoothing=10)
-    train_data['public_meeting']= encoder.fit_transform(train_data['public_meeting'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['public_meeting']=noise+train_data['public_meeting']
-    encoder= ce.TargetEncoder(cols=['water_quality'],min_samples_leaf=40, smoothing=10)
-    train_data['water_quality']= encoder.fit_transform(train_data['water_quality'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['water_quality']=noise+train_data['water_quality']
-    encoder= ce.TargetEncoder(cols=['quantity'],min_samples_leaf=40, smoothing=10)
-    train_data['quantity']= encoder.fit_transform(train_data['quantity'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['quantity']=noise+train_data['quantity']
-    encoder= ce.TargetEncoder(cols=['waterpoint_type'],min_samples_leaf=40, smoothing=10)
-    train_data['waterpoint_type']= encoder.fit_transform(train_data['waterpoint_type'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['waterpoint_type']=noise+train_data['waterpoint_type']
-    encoder= ce.TargetEncoder(cols=['source_class'],min_samples_leaf=40, smoothing=10)
-    train_data['source_class']= encoder.fit_transform(train_data['source_class'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['source_class']=noise+train_data['source_class']
-    encoder= ce.TargetEncoder(cols=['source'],min_samples_leaf=40, smoothing=10)
-    train_data['source']= encoder.fit_transform(train_data['source'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['source']=noise+train_data['source']
-    encoder= ce.TargetEncoder(cols=['payment'],min_samples_leaf=40, smoothing=10)
-    train_data['payment']= encoder.fit_transform(train_data['payment'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['payment']=noise+train_data['payment']
-    encoder= ce.TargetEncoder(cols=['management'],min_samples_leaf=40, smoothing=10)
-    train_data['management']= encoder.fit_transform(train_data['management'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['management']=noise+train_data['management']
-    encoder= ce.TargetEncoder(cols=['extraction_type_class'],min_samples_leaf=40, smoothing=10)
-    train_data['extraction_type_class']= encoder.fit_transform(train_data['extraction_type_class'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['extraction_type_class']=noise+train_data['extraction_type_class']
-    encoder= ce.TargetEncoder(cols=['basin'],min_samples_leaf=40, smoothing=10)
-    train_data['basin']= encoder.fit_transform(train_data['basin'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['basin']=noise+train_data['basin']
-    encoder= ce.TargetEncoder(cols=['funder'],min_samples_leaf=40, smoothing=10)
-    train_data['funder']= encoder.fit_transform(train_data['funder'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['funder']=noise+train_data['funder']
-    encoder= ce.TargetEncoder(cols=['scheme_name'],min_samples_leaf=50, smoothing=10)
-    train_data['scheme_name']=encoder.fit_transform(train_data['scheme_name'],train_data['status_group'])
-    noise = np.random.normal(mu, sigma, train_data.shape[0])
-    train_data['scheme_name']=noise+train_data['scheme_name']
-    train_data['population'].fillna(0)
-    train_data['population']=train_data['population'].replace(0,train_data['population'].median())
-    train_data['construction_year']=train_data['construction_year'].replace(0,train_data['construction_year'].median())
-    cleandata=train_data
-    return cleandata
+mu, sigma = 0, 0.05 # mean and % of noise for adding noise to avoid overfitting
+encoder= ce.TargetEncoder(cols=['permit'],min_samples_leaf=40, smoothing=10) # Target encoding parameters
+df['permit']= encoder.fit_transform(df['permit'],df['status_group']) # fitting model with the categorical column and target variable
+noise = np.random.normal(mu, sigma, df.shape[0]) # generating the noise values equal to rows.
+df['permit']=noise+df['permit']
+encoder= ce.TargetEncoder(cols=['public_meeting'],min_samples_leaf=40, smoothing=10)
+df['public_meeting']= encoder.fit_transform(df['public_meeting'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['public_meeting']=noise+df['public_meeting']
+encoder= ce.TargetEncoder(cols=['water_quality'],min_samples_leaf=40, smoothing=10)
+df['water_quality']= encoder.fit_transform(df['water_quality'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['water_quality']=noise+df['water_quality']
+encoder= ce.TargetEncoder(cols=['quantity'],min_samples_leaf=40, smoothing=10)
+df['quantity']= encoder.fit_transform(df['quantity'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['quantity']=noise+df['quantity']
+encoder= ce.TargetEncoder(cols=['waterpoint_type'],min_samples_leaf=40, smoothing=10)
+df['waterpoint_type']= encoder.fit_transform(df['waterpoint_type'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['waterpoint_type']=noise+tdf['waterpoint_type']
+encoder= ce.TargetEncoder(cols=['source_class'],min_samples_leaf=40, smoothing=10)
+df['source_class']= encoder.fit_transform(df['source_class'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['source_class']=noise+df['source_class']
+encoder= ce.TargetEncoder(cols=['source'],min_samples_leaf=40, smoothing=10)
+df['source']= encoder.fit_transform(df['source'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['source']=noise+df['source']
+encoder= ce.TargetEncoder(cols=['payment'],min_samples_leaf=40, smoothing=10)
+df['payment']= encoder.fit_transform(df['payment'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['payment']=noise+df['payment']
+encoder= ce.TargetEncoder(cols=['management'],min_samples_leaf=40, smoothing=10)
+df['management']= encoder.fit_transform(df['management'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['management']=noise+df['management']
+encoder= ce.TargetEncoder(cols=['extraction_type_class'],min_samples_leaf=40, smoothing=10)
+df['extraction_type_class']= encoder.fit_transform(ddf['extraction_type_class'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['extraction_type_class']=noise+df['extraction_type_class']
+encoder= ce.TargetEncoder(cols=['basin'],min_samples_leaf=40, smoothing=10)
+df['basin']= encoder.fit_transform(df['basin'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['basin']=noise+df['basin']
+encoder= ce.TargetEncoder(cols=['funder'],min_samples_leaf=40, smoothing=10)
+df['funder']= encoder.fit_transform(df['funder'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['funder']=noise+df['funder']
+encoder= ce.TargetEncoder(cols=['scheme_name'],min_samples_leaf=50, smoothing=10)
+df['scheme_name']=encoder.fit_transform(df['scheme_name'],df['status_group'])
+noise = np.random.normal(mu, sigma, df.shape[0])
+df['scheme_name']=noise+df['scheme_name']
+df['population'].fillna(0)
+df['population']=df['population'].replace(0,df['population'].median())
+df['construction_year']=df['construction_year'].replace(0,df['construction_year'].median())
+cleandata=train_data
 test=datacleaning(df)
 # predicting the target varible from input variable of train data
 test=test.drop(columns=['status_group'])
