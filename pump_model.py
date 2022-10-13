@@ -73,7 +73,7 @@ df['quantity']=noise+df['quantity']
 encoder= ce.TargetEncoder(cols=['waterpoint_type'],min_samples_leaf=40, smoothing=10)
 df['waterpoint_type']= encoder.fit_transform(df['waterpoint_type'],df['status_group'])
 noise = np.random.normal(mu, sigma, df.shape[0])
-df['waterpoint_type']=noise+tdf['waterpoint_type']
+df['waterpoint_type']=noise+df['waterpoint_type']
 encoder= ce.TargetEncoder(cols=['source_class'],min_samples_leaf=40, smoothing=10)
 df['source_class']= encoder.fit_transform(df['source_class'],df['status_group'])
 noise = np.random.normal(mu, sigma, df.shape[0])
