@@ -39,13 +39,13 @@ st.text(s)   # for printing the datafram information
 # adding upload button for giving test data input to model
 data_file = st.file_uploader("Upload CSV",type=['csv'])
 st.write(" *NOTE: After uploading the file below Name Error will be rectified.")
-if st.button("# Process"):
+if st.button("#Process"):
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         df = pd.read_csv(data_file)
-        st.subheader('#Waterpoint dataset features')
+        st.subheader('Waterpoint dataset features')
         st.dataframe(df)
-        st.write("#Uploaded file data points")
+        st.write("Uploaded file data points")
         st.write(df.shape[0])
 # created a function datacleaning for working both on train and test data
 target= target.iloc[:14850]
