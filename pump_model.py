@@ -91,7 +91,7 @@ df['management']= encoder.fit_transform(df['management'],df['status_group'])
 noise = np.random.normal(mu, sigma, df.shape[0])
 df['management']=noise+df['management']
 encoder= ce.TargetEncoder(cols=['extraction_type_class'],min_samples_leaf=40, smoothing=10)
-df['extraction_type_class']= encoder.fit_transform(ddf['extraction_type_class'],df['status_group'])
+df['extraction_type_class']= encoder.fit_transform(df['extraction_type_class'],df['status_group'])
 noise = np.random.normal(mu, sigma, df.shape[0])
 df['extraction_type_class']=noise+df['extraction_type_class']
 encoder= ce.TargetEncoder(cols=['basin'],min_samples_leaf=40, smoothing=10)
