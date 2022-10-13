@@ -109,8 +109,7 @@ df['scheme_name']=noise+df['scheme_name']
 df['population'].fillna(0)
 df['population']=df['population'].replace(0,df['population'].median())
 df['construction_year']=df['construction_year'].replace(0,df['construction_year'].median())
-cleandata=train_data
-test=datacleaning(df)
+test=df
 # predicting the target varible from input variable of train data
 test=test.drop(columns=['status_group'])
 
