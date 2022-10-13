@@ -48,7 +48,7 @@ if st.button("Process"):
         st.write("Uploaded file data points")
         st.write(df.shape[0])
 # created a function datacleaning for working both on train and test data
-
+target= target.iloc[:14850]
 df=pd.concat((df,target),axis=1)
 label_encoder = preprocessing.LabelEncoder() # for traget encoding first we have to convert the target label to numerical
 df['status_group']= label_encoder.fit_transform(df['status_group']) 
