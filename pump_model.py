@@ -114,6 +114,8 @@ def datacleaning(train_data):
 test=datacleaning(df)
 # predicting the target varible from input variable of train data
 test=test.drop(columns=['status_group'])
+st.write("Uploaded file data points")
+st.write(test.shape[0])
 
 XGB = pickle.load(open('xgbmodel_pkl','rb'))
 
