@@ -45,6 +45,8 @@ if st.button("Process"):
         df = pd.read_csv(data_file)
         st.subheader('Waterpoint dataset features')
         st.dataframe(df)
+        st.write("Uploaded file data points")
+        st.write(df.shape[0])
 # created a function datacleaning for working both on train and test data
 
 df=pd.concat((df,target),axis=1)
