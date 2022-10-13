@@ -43,7 +43,7 @@ if st.button("Process"):
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         df = pd.read_csv(data_file)
-        st.subheader('Waterpoint dataset parameters')
+        st.subheader('Waterpoint dataset features')
         st.dataframe(df)
 # created a function datacleaning for working both on train and test data
 def datacleaning(train_data):
