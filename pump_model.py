@@ -126,8 +126,6 @@ prediction=prediction.replace(to_replace=1,value="non functional")
 prediction=prediction.replace(to_replace=2,value="functional needs repair")
 st.subheader('Prediction')
 st.write(prediction)
-st.write("Uploaded file data points")
-st.write(df.shape[0])
 st.write("Downloaded file data points")
 st.write(prediction.shape[0])
 
