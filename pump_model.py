@@ -39,7 +39,7 @@ st.text(s)   # for printing the datafram information
 # adding upload button for giving test data input to model
 data_file = st.file_uploader("Upload CSV",type=['csv'])
 st.write(" *NOTE: After uploading the file below Name Error will be rectified.")
-if st.button("#Process"):
+if st.button("Process"):
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         df = pd.read_csv(data_file)
