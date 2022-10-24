@@ -24,13 +24,13 @@ st.subheader("Select the Options Below")
 
 # adding upload button for giving test data input to model
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
-
+data_file.to_csv ("sap.csv", index = None, header=True)
+data=pd.DataFrame(pd.read_csv("sap.csv"))
+st.write(data_file)
+st.write(data)
 if st.button("Process"):
     if data_file is not None:
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
-        
-        data_file.to_csv ("sap.csv", index = None, header=True)
-        data=pd.DataFrame(pd.read_csv("sap.csv"))
         st.subheader('total data points')
         st.dataframe(data.shape)
 
