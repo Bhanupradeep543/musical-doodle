@@ -28,11 +28,21 @@ if st.button("Process"):
     if data_file is not None:
         data = pd.DataFrame(pd.read_excel(data_file))
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
-        st.subheader('total notifications')
+        st.subheader('Total notifications')
         st.write(data.shape[0])
         x=data['Order'].isnull().sum()
         y=data.shape[0]
-        st.write("% of permits issued against notifications")
+        st.subheader("% of permits issued against notifications")
         st.write(round((((y-x)/y)*100),2))
+        st.subheader("Priority wise notifications")
+        st.write(data['Priority'].value_counts())
+        st.subheader("Max. notifications Reported by")
+        st.write(data['Reported by'].value_counts().head(10))
+        st.subheader("Max. notifications Planner group wise")
+        st.write(data['Planner group'].value_counts().head())
+        st.subheader("Max. notifications Department wise")
+        st.write(data['Main WorkCtr'].value_counts().head())
+        st.subheader("User status of notification")
+        st.write(data['User status'].value_counts().head())
                
 
