@@ -32,7 +32,7 @@ if st.button("Process"):
         st.write(data.shape[0])
         x=data['Order'].isnull().sum()
         y=data.shape[0]
-        st.write(""% of permits issued against notifications")
+        st.write("% of permits issued against notifications")
         st.write(round((((y-x)/y)*100),2))
                
 
