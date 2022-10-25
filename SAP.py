@@ -28,7 +28,7 @@ if st.button("Process"):
     if data_file is not None:
         data = pd.DataFrame(pd.read_excel(data_file))
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
-        st.subheader('total data points')
-        st.dataframe(data.shape)
-
+st.subheader('total data points')
+st.dataframe(data.shape)
+      
 
