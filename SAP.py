@@ -28,7 +28,11 @@ if st.button("Process"):
     if data_file is not None:
         data = pd.DataFrame(pd.read_excel(data_file))
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
-st.subheader('total data points')
-st.dataframe(data.shape)
-      
+        st.subheader('total notifications')
+        st.write(data.shape[0])
+        x=data['Order'].isnull().sum()
+        y=data.shape[0]
+        st.write(""% of permits issued against notifications")
+        st.write(round((((y-x)/y)*100),2))
+               
 
