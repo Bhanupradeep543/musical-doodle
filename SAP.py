@@ -26,7 +26,7 @@ st.subheader("Select the Options Below")
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
 if st.button("Process"):
     if data_file is not None:
-        data = pd.DataFrame(pd.read_excel(data_file)
+        data = pd.DataFrame(pd.read_excel(data_file))
         data.to_csv("sap.csv", index = None, header=True)
         data=pd.DataFrame(pd.read_csv("sap.csv"))
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
