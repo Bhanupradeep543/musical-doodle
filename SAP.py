@@ -16,7 +16,7 @@ import streamlit as st
 import io
 # choosing the image for application background directly from web URL
 st.markdown(f"""<style>.stApp {{                        
-             background: url("https://www.inspiredtesting.com/media/k2/items/cache/f50c152c7848dac24210d3ad3ad22154_L.jpg");
+             background: url("https://www.intouch-quality.com/hubfs/quality-defects-ft-lg.jpg");
              background-size: cover}}
          </style>""",unsafe_allow_html=True)
 st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
