@@ -44,5 +44,8 @@ if st.button("Process"):
         st.write(data['Main WorkCtr'].value_counts().head())
         st.subheader("User status of notification")
         st.write(data['User status'].value_counts().head())
-               
+        st.subheader("Repeated notifications ")
+        st.write(data['Functional Loc.'].value_counts().head())
+
+     
 
