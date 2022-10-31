@@ -47,7 +47,7 @@ if st.button("Process"):
         st.subheader("Repeated notifications ")
         a=data['Functional Loc.'].value_counts().head(100)
         b=pd.DataFrame(a)
-        st.write(b.shape)
+        st.write(b[0][0])
 
      
 
