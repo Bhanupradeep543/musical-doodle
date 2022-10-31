@@ -45,9 +45,8 @@ if st.button("Process"):
         st.subheader("User status of notification")
         st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications ")
-        a=data['Functional Loc.'].value_counts().head(100)
-        b=pd.DataFrame(a)
-        st.write(b.describe())
+        st.write(data['Description'].value_counts().head(100))
+
 
      
 
