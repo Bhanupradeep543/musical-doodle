@@ -46,12 +46,7 @@ if st.button("Process"):
         st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications ")
         a=data['Functional Loc.'].value_counts().head(100)
-        def convert_df(df):
-          return df.to_csv().encode('utf-8')
-        csv = convert_df(a) # calling the function to convert the output file into CSV
-        st.write(csv.shape)
-        #adding a download button to download csv file
-        st.download_button(label="Download data as CSV",data=csv,file_name='predicted ouput.csv',mime='text/csv')
+        st.write(a.iloc[1])
 
      
 
