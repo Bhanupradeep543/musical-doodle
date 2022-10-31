@@ -45,7 +45,12 @@ if st.button("Process"):
         st.subheader("User status of notification")
         st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications ")
-        st.write(data['System'].value_counts().head(150))
+        a=data['System'].value_counts().head(300)
+        def convert_df(df):
+          return df.to_csv().encode('utf-8')
+        csv = convert_df(a) # calling the function to convert the output file into CSV
+        #adding a download button to download csv file
+        st.download_button(label="Download in Excel",data=csv,file_name='Repeated notifications.xlsx',mime='xlsx')
 
 
      
