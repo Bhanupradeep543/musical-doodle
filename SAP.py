@@ -46,8 +46,7 @@ if st.button("Process"):
         st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications ")
         a=data['Functional Loc.'].value_counts().head(100)
-        for i in range(a.shape[0]):
-          st.write(a[i])
+        st.write(a)
 
      
 
