@@ -50,7 +50,7 @@ if st.button("Process"):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
         #adding a download button to download csv file
-        st.download_button(label="Download in Excel",data=csv,file_name='Repeated notifications.xlsx',mime='xlsx')
+        st.download_button(label="Download in Excel",data=csv,file_name='Repeated notifications.xlsx')
 
 
      
