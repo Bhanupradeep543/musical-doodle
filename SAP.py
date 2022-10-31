@@ -47,6 +47,7 @@ if st.button("Process"):
         st.subheader("Repeated notifications ")
         st.write("File consists of TOP 300 notifications with same functional location")
         a=data['System'].value_counts().head(300)
+        st.write(a)
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
