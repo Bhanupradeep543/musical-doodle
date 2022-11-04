@@ -31,7 +31,7 @@ if st.button("Process"):
         st.subheader('Total notifications')
         st.write(data.shape[0])
         st.subheader("Max. notifications Reported by")
-        st.write(sb.countplot(data['Reported by'].value_counts().head(10)))
+        st.bar_chart(data['Reported by'].value_counts().head(10)))
         st.subheader("Max. notifications Planner group wise")
         st.write(data['Planner group'].value_counts().head())
         st.subheader("Max. notifications Department wise")
