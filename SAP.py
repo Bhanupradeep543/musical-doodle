@@ -30,12 +30,6 @@ if st.button("Process"):
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         st.subheader('Total notifications')
         st.write(data.shape[0])
-        x=data['Order'].isnull().sum()
-        y=data.shape[0]
-        st.subheader("% of permits issued against notifications")
-        st.write(round((((y-x)/y)*100),2))
-        st.subheader("Priority wise notifications")
-        st.write(data['Priority'].value_counts())
         st.subheader("Max. notifications Reported by")
         st.write(data['Reported by'].value_counts().head(10))
         st.subheader("Max. notifications Planner group wise")
