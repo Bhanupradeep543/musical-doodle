@@ -22,7 +22,6 @@ st.markdown(f"""<style>.stApp {{
 st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
 st.subheader("Select the date range for notifications") 
 d = st.date_input("From", )
-st.write(type(d))
 e = st.date_input("TO", )
 # adding upload button for giving test data input to model
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
@@ -32,6 +31,8 @@ if st.button("Process"):
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         st.subheader('Total notifications')
         st.write(data.shape[0])
+        for i in range(d,e):
+          st.write(data['Created On'][i]
         st.subheader("Max. notifications Reported by")
         st.bar_chart(data['Reported by'].value_counts().head(10))
         st.subheader("Max. notifications Planner group wise")
