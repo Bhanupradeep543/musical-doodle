@@ -31,8 +31,6 @@ if st.button("Process"):
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         st.subheader('Total notifications')
         st.write(data.shape[0])
-        for i in range(d,e):
-          st.write(data['Created On'][i]
         st.subheader("Max. notifications Reported by")
         st.bar_chart(data['Reported by'].value_counts().head(10))
         st.subheader("Max. notifications Planner group wise")
