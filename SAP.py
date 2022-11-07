@@ -24,7 +24,6 @@ st.subheader("Select the date range for notifications")
 d = st.date_input("From", )
 st.write(type(d))
 e = st.date_input("TO", )
-st.write(e)
 # adding upload button for giving test data input to model
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
 if st.button("Process"):
@@ -43,6 +42,7 @@ if st.button("Process"):
         st.write("File consists of TOP 300 notifications with same functional location")
         a=data['System'].value_counts().head(300)
         st.write(a)
+        st.write(type(data['Created On']))
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
