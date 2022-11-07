@@ -39,7 +39,7 @@ if st.button("Process"):
         st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications ")
         st.write("File consists of TOP 300 notifications with same functional location")
-        a=data['System'].value_counts().head(300)
+        a=data.iloc[:,13].value_counts().head(300)
         st.write(a)
         st.write(type(data['Created On']))
         def convert_df(df):
