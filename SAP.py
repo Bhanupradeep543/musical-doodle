@@ -22,7 +22,7 @@ st.markdown(f"""<style>.stApp {{
 st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
 st.subheader("Select the date range for notifications") 
 d = st.date_input("From", )
-st.write(d)
+st.write(type(d))
 e = st.date_input("TO", )
 st.write(e)
 # adding upload button for giving test data input to model
