@@ -41,7 +41,7 @@ if st.button("upload"):
         newdata=pd.DataFrame()
         for i in range(data.shape[0]):
           if (data['Created On'][i]>=d) and (data['Created On'][i]<=e) :
-            newdata=newdata.append(data[i])
+            newdata=newdata.append(data.iloc[i])
         st.subheader("Repeated notifications ")
         st.write("File consists of TOP 300 notifications with same functional location")
         a=newdata.iloc[:,13].value_counts().head(300)
