@@ -41,7 +41,7 @@ if st.button("Process"):
         st.write("File consists of TOP 300 notifications with same functional location")
         a=data.iloc[:,13].value_counts().head(300)
         st.write(a)
-        st.write(type(data['Created On']))
+        st.write(data['Created On'][2])
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
