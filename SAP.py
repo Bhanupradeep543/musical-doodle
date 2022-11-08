@@ -53,6 +53,7 @@ if st.button("upload"):
         #adding a download button to download csv file
         st.download_button(label="Download",data=cs,file_name='Repeated notifications.csv',mime='text/csv')
         for i in range(b.shape[0]):
+          plngrp['Created On']=pd.to_datetime(pd.Series(plngrp['Created On']))
           plngrp['Created On']=plngrp['Created On'].strftime('%Y/%m')
         st.bar_chart(plngrp['Created On'].value_counts().head(20))
         data['Created On']=pd.to_datetime(data['Created On']).dt.date
