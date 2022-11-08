@@ -43,6 +43,8 @@ if st.button("Process"):
         st.write(a)
         data['Created On']=pd.to_datetime(data['Created On']).dt.date
         st.write(data['Created On'][2])
+        if d==data['Created On'][2]:
+          st.write("yahoooo!")
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
