@@ -44,7 +44,7 @@ if st.button("upload"):
         plngrp=pd.DataFrame()
         for i in range(data.shape[0]):
           if c==data['Planner group'][i]:
-            plngrp=plngrp.append(data['Planner group'][i])                     
+            plngrp=plngrp.append(data.iloc[i])                     
         b=plngrp.iloc[:,13].value_counts().head(300)
         st.write(b)
         def convert_df(df):
