@@ -20,10 +20,10 @@ st.markdown(f"""<style>.stApp {{
              background-size: cover}}
          </style>""",unsafe_allow_html=True)
 st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
-st.subheader("Select the date range for notifications") 
+st.subheader("Select the From and To date for notifications") 
 d = st.date_input("From", )
 e = st.date_input("TO", )
-# adding upload button for giving test data input to model
+
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
 if st.button("upload"):
     if data_file is not None:
@@ -37,13 +37,23 @@ if st.button("upload"):
         st.bar_chart(data['Planner group'].value_counts().head(7))
         st.subheader("User status of notification")
         st.write(data['User status'].value_counts().head())
+        st.subheader("Repeated notifications Planner group wise")
+        options = st.multiselect('Select the planner Group',['CIA','CIB','CIC','CID','CIN','CIV','CNI','EAP','EBP','EBR','MAP','MBP','MBM','MTM'])
+        st.write(options)
+        b=data.iloc[:,13].value_counts().head(300)
+        st.write(b)
+        def convert_df(df):
+          return df.to_csv().encode('utf-8')
+        cs = convert_df(b) 
+        #adding a download button to download csv file
+        st.download_button(label="Download",data=cs,file_name='Repeated notifications.csv',mime='text/csv')
+        
         data['Created On']=pd.to_datetime(data['Created On']).dt.date
         newdata=pd.DataFrame()
         for i in range(data.shape[0]):
           if (data['Created On'][i]>=d) and (data['Created On'][i]<=e) :
             newdata=newdata.append(data.iloc[i])
-        st.subheader("Repeated notifications ")
-        st.write("File consists of TOP 300 notifications with same functional location")
+        st.subheader("Repeated notifications in mentioned dates")
         a=newdata.iloc[:,13].value_counts().head(300)
         st.write(a)
         def convert_df(df):
