@@ -55,7 +55,7 @@ if st.button("upload"):
         for i in range(b.shape[0]):
           plngrp['Created On']=pd.to_datetime(pd.Series(plngrp['Created On']))
           plngrp['Created On']=plngrp['Created On'].dt.strftime('%Y/%m')
-        st.bar_chart(plngrp['Created On'].value_counts().head(20))
+        st.bar_chart(plngrp['Created On'].value_counts().head(30))
         data['Created On']=pd.to_datetime(data['Created On']).dt.date
         newdata=pd.DataFrame()
         for i in range(data.shape[0]):
