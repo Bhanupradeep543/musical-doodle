@@ -45,7 +45,7 @@ if st.button("upload"):
         for i in range(data.shape[0]):
           if c==data['Planner group'][i]:
             plngrp=plngrp.append(data.iloc[i])                     
-        b=plngrp.iloc[:,13].value_counts().head(300)
+        b=plngrp.iloc[:,13].value_counts().head(20)
         st.write(b)
         def convert_df(df):
           return df.to_csv().encode('utf-8')
