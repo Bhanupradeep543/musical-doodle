@@ -42,9 +42,9 @@ if st.button("Process"):
         a=data.iloc[:,13].value_counts().head(300)
         st.write(a)
         data['Created On']=pd.to_datetime(data['Created On']).dt.date
-        st.write(data['Created On'][2])
-        if d==data['Created On'][2]:
-          st.write("yahoooo!")
+        for i in range(data.shape[0]):
+          if d==data['Created On'][i]:
+           st.write("yahoooo!")
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
