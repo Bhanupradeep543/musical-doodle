@@ -25,7 +25,7 @@ d = st.date_input("From", )
 e = st.date_input("TO", )
 # adding upload button for giving test data input to model
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
-if st.button("Process"):
+if st.button("upload"):
     if data_file is not None:
         data = pd.DataFrame(pd.read_excel(data_file))
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
@@ -37,14 +37,15 @@ if st.button("Process"):
         st.bar_chart(data['Planner group'].value_counts().head(7))
         st.subheader("User status of notification")
         st.write(data['User status'].value_counts().head())
+        data['Created On']=pd.to_datetime(data['Created On']).dt.date
+        newdata=pd.DataFrame()
+        for i in range(data.shape[0]):
+          if (data['Created On'][i]>=d) and (data['Created On'][i]<=e) :
+            newdata=newdata.append(data[i])
         st.subheader("Repeated notifications ")
         st.write("File consists of TOP 300 notifications with same functional location")
-        a=data.iloc[:,13].value_counts().head(300)
+        a=newdata.iloc[:,13].value_counts().head(300)
         st.write(a)
-        data['Created On']=pd.to_datetime(data['Created On']).dt.date
-        for i in range(data.shape[0]):
-          if d==data['Created On'][i]:
-           st.write("yahoooo!")
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         csv = convert_df(a) # calling the function to convert the output file into CSV
