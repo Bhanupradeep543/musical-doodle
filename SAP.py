@@ -23,7 +23,7 @@ st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
 st.subheader("Select the From and To date for notifications") 
 d = st.date_input("From", )
 e = st.date_input("TO", )
-st.subheader("Repeated notifications Planner group wise")
+st.subheader("Select the Planner group")
 options = st.multiselect('Select the planner Group',['CIA','CIB','CIC','CID','CIN','CIV','CNI','EAP','EBP','EBR','MAP','MBP','MBM','MTM'])
 c=options[0]
 st.write(c)
@@ -40,8 +40,12 @@ if st.button("upload"):
         st.bar_chart(data['Planner group'].value_counts().head(7))
         st.subheader("User status of notification")
         st.write(data['User status'].value_counts().head())
-        
-        b=data.iloc[:,13].value_counts().head(300)
+        st.subheader("Repeated notifications Planner group wise")
+        plngrp=pd.DataFrame()
+        for i in range(data.shape[0]:
+          if c==data['Planner group'][i]:
+            plngrp=pngrp.append(data['Planner group'][i])                     
+        b=plngrp.iloc[:,13].value_counts().head(300)
         st.write(b)
         def convert_df(df):
           return df.to_csv().encode('utf-8')
