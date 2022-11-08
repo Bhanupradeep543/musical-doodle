@@ -25,7 +25,7 @@ d = st.date_input("From", )
 e = st.date_input("TO", )
 st.subheader("Repeated notifications Planner group wise")
 options = st.multiselect('Select the planner Group',['CIA','CIB','CIC','CID','CIN','CIV','CNI','EAP','EBP','EBR','MAP','MBP','MBM','MTM'])
-st.write(options)
+st.write(type(options))
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
 if st.button("upload"):
     if data_file is not None:
