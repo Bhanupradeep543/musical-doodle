@@ -7,27 +7,19 @@ import pandas as pd
 st.title("Extract Text from Images")
 #image uploader
 image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
-
 @st.cache
 def load_model(): 
     reader = ocr.Reader(['en'],model_storage_directory='.')
     return reader 
-
 reader = load_model() #load model
-
 if image is not None:
-
     input_image = Image.open(image) #read image
     st.image(input_image) #display image
 
     with st.spinner("🤖 AI is at Work! "):
-        
-
         result = reader.readtext(np.array(input_image))
         
         result_text = pd.DataFrame() #empty list for results
-
-
         for text in result:
             result_text=result_text.append(text)
 
