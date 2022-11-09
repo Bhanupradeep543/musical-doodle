@@ -21,7 +21,7 @@ if image is not None:
         
         result_text = pd.DataFrame() #empty list for results
         result_text=result_text.append(result)
-        result_text=result_text.drop(details.columns[[0,2]],axis = 1)
+        result_text=result_text.drop(result_text.columns[[0,2]],axis = 1)
         st.write(result_text)
     #st.success("Here you go!")
     st.balloons()
