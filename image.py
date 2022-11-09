@@ -16,12 +16,12 @@ if image is not None:
     input_image = Image.open(image) #read image
     st.image(input_image) #display image
 
-    with st.spinner("🤖 AI is at Work! "):
+    with st.spinner("🤖 wait for a while! "):
         result = reader.readtext(np.array(input_image))
         
         result_text = pd.DataFrame() #empty list for results
         result_text=result_text.append(result)
-
+        result_text=result_text.drop(details.columns[[0,2]],axis = 1)
         st.write(result_text)
     #st.success("Here you go!")
     st.balloons()
