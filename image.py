@@ -1,26 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-
 import easyocr as ocr  #OCR
 import streamlit as st  #Web App
 from PIL import Image #Image Processing
 import numpy as np #Image Processing 
-
+import pandas as pd
 #title
-st.title("Easy OCR - Extract Text from Images")
-
-#subtitle
-st.markdown("## Optical Character Recognition - Using `easyocr`, `streamlit`")
-
-st.markdown("")
-
+st.title("Extract Text from Images")
 #image uploader
 image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
-
 
 @st.cache
 def load_model(): 
@@ -38,8 +24,8 @@ if image is not None:
         
 
         result = reader.readtext(np.array(input_image))
-
-        result_text = [] #empty list for results
+        
+        result_text = pd.DataFrame() #empty list for results
 
 
         for text in result:
