@@ -25,6 +25,11 @@ if image is not None:
         st.write(result_text)
     #st.success("Here you go!")
     st.balloons()
+    def convert_df(df):
+          return df.to_csv().encode('utf-8')
+    csv = convert_df(result_text) # calling the function to convert the output file into CSV
+    #adding a download button to download csv file
+    st.download_button(label="Download",data=csv,file_name='Generator temp.csv',mime='text/csv')
 else:
     st.write("Upload an Image")
 
