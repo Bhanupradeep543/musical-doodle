@@ -20,8 +20,7 @@ if image is not None:
         result = reader.readtext(np.array(input_image))
         
         result_text = pd.DataFrame() #empty list for results
-        for text in result:
-            result_text=result_text.append(text)
+        result_text=result_text.append(result)
 
         st.write(result_text)
     #st.success("Here you go!")
