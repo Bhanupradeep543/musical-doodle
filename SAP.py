@@ -23,10 +23,6 @@ st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
 st.subheader("Select the date range for notifications") 
 d = st.date_input("From", )
 e = st.date_input("TO", )
-st.subheader("Select the Planner group for obtaining repeated notifications")
-options = st.multiselect('Select the planner Group',['CIA','CIB','CIC','CID','CIN','CIV','CNI','EAP','EBP','EBR','MAP','MBP','MBM','MTM'])
-c=options[0]
-st.write(c)
 data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
 if st.button("upload"):
     if data_file is not None:
@@ -43,6 +39,10 @@ if st.button("upload"):
         #st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications Planner group wise")
         plngrp=pd.DataFrame()
+        st.subheader("Select the Planner group for obtaining repeated notifications")
+        options = st.multiselect('Select the planner Group',['CIA','CIB','CIC','CID','CIN','CIV','CNI','EAP','EBP','EBR','MAP','MBP','MBM','MTM'])
+        c=options[0]
+        st.write(c)
         for i in range(data.shape[0]):
           if c==data['Planner group'][i]:
             plngrp=plngrp.append(data.iloc[i])                     
