@@ -31,6 +31,7 @@ data_file = st.file_uploader("Upload SAP EXCEL file",type=['xlsx'])
 if st.button("upload"):
     if data_file is not None:
         data = pd.DataFrame(pd.read_excel(data_file))
+        data=data[data['Main WorkCtr']!='OPRN']
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         st.subheader('Total notifications')
         st.write(data.shape[0])
