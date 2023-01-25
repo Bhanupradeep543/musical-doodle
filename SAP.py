@@ -20,7 +20,7 @@ st.markdown(f"""<style>.stApp {{
              background-size: cover}}
          </style>""",unsafe_allow_html=True)
 st.write("""# SEIL SAP Notification Dashboard """) # Tittle addition
-st.subheader("Select the From and To date for notifications") 
+st.subheader("Select the date range for notifications") 
 d = st.date_input("From", )
 e = st.date_input("TO", )
 st.subheader("Select the Planner group for obtaining repeated notifications")
