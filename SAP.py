@@ -43,7 +43,7 @@ if st.button("upload"):
         #st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications Planner group wise")
         plngrp=pd.DataFrame()
-        sb.write(len(data.shape[0]))
+        sb.write(data.shape[0])
         for i in range(data.shape[0]):          
           if c==data['Planner group'][i]:
             plngrp=plngrp.append(data.iloc[i])                     
