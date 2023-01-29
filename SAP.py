@@ -46,7 +46,7 @@ if st.button("upload"):
         j=0
         for i in range(data.shape[0]):
           j+=1
-        sb.write(j)
+        st.write(j)
         for i in range(data.shape[0]):          
           if c==data['Planner group'][i-1]:
             j+=1
