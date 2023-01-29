@@ -46,6 +46,7 @@ if st.button("upload"):
         j=0
         for i in range(data.shape[0]):          
           if c==data['Planner group'][i]:
+            st.write(data.iloc[i])
             plngrp=plngrp.append(data.iloc[i])                     
         b=plngrp.iloc[:,13].value_counts().head(20)
         st.write(b)
