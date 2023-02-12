@@ -42,13 +42,7 @@ if st.button("upload"):
         #st.subheader("User status of notification")
         #st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications Planner group wise")
-        plngrp=pd.DataFrame()
-        j=0
-        for i in range(data.shape[0]):          
-          if c==data['Planner group'][i]:
-            st.write(data.iloc[i])
-            plngrp=plngrp.append(data.iloc[i])                     
-        b=plngrp.iloc[:,13].value_counts().head(20)
+        b=data[data['Planner group']==c]
         st.write(b)
         def convert_df(df):
           return df.to_csv().encode('utf-8')
