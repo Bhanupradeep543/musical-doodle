@@ -43,7 +43,8 @@ if st.button("upload"):
         #st.write(data['User status'].value_counts().head())
         st.subheader("Repeated notifications Planner group wise")
         b=data[data['Planner group']==c]
-        st.write(b['Planner group'].value_counts().head(20))
+        rp=b['Planner group'].value_counts().head(20)
+        st.write(rp)
         def convert_df(df):
           return df.to_csv().encode('utf-8')
         cs = convert_df(b) 
