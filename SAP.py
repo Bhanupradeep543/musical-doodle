@@ -48,7 +48,7 @@ if st.button("upload"):
         st.write(rp)
         def convert_df(df):
           return df.to_csv().encode('utf-8')
-        cs = convert_df(b) 
+        cs = convert_df(rp) 
         #adding a download button to download csv file
         st.download_button(label="Download",data=cs,file_name='Repeated notifications.csv',mime='text/csv')
         for i in range(b.shape[0]):
