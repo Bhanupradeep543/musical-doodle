@@ -32,7 +32,7 @@ if st.button("upload"):
     if data_file is not None:
         data = pd.DataFrame(pd.read_excel(data_file))
         data=data[data['Main WorkCtr']!='OPRN']
-        data=data.drop(data[data['Description'].str.contains('PM ')])        
+        data=data.drop(data[data['Description'].str.contains('PM ')].index)        
         file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
         st.subheader('Total notifications')
         st.write(data.shape[0])
