@@ -48,9 +48,14 @@ if st.button("upload"):
         
         rp=b['System'].value_counts().head(20)
         st.write(rp)
+        column_name = 'System'
+        word_counts = data[column_name].value_counts()
+        repeated_words = word_counts[word_counts > 15]
+        grouped = data.groupby(column_name)
+        repeated_rows = grouped.apply(lambda x: x[x[column_name].isin(repeated_words.index)])
         def convert_df(df):
           return df.to_csv().encode('utf-8')
-        cs = convert_df(rp) 
+        cs = convert_df(repeated_rows) 
         #adding a download button to download csv file
         st.download_button(label="Download",data=cs,file_name='Repeated notifications.csv',mime='text/csv')
         for i in range(b.shape[0]):
