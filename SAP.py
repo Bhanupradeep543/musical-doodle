@@ -53,8 +53,8 @@ if st.button("upload"):
         repeated_words = word_counts[word_counts > 15]
         grouped = data.groupby(column_name)
         repeated_rows = grouped.apply(lambda x: x[x[column_name].isin(repeated_words.index)])
-        st.subheader("Top 20 repeated notifications from SEIL P1")
-        rp1=repeated_rows['System'].value_counts().head(20)
+        st.subheader("Top 100 repeated notifications from SEIL P1")
+        rp1=repeated_rows['System'].value_counts().head(100)
         st.write(rp1)
         #def convert_df(df):
           #return df.to_csv().encode('utf-8')
